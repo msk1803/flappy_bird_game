@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  /* Glassmorphism container wrapper */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  user-select: none;
+}
+
+.game-box {
+  /* Flappy Bird background */
+  background-image: url('https://raw.githubusercontent.com/codedex-io/projects/main/projects/build-a-flappy-bird-clone-with-phaser/background_and_road.png');
+  background-size: cover;
+  background-position: center bottom;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
+}
+
+.bird {
+  position: absolute;
+  background-image: url('https://raw.githubusercontent.com/samuelcust/flappy-bird-assets/master/sprites/yellowbird-midflap.png');
+  background-size: 100% 100%;
+  left: 50px;
+  transition: transform 0.1s ease-out;
+  z-index: 10;
+}
+
+.pipe {
+  position: absolute;
+  background-image: url('https://raw.githubusercontent.com/samuelcust/flappy-bird-assets/master/sprites/pipe-green.png');
+  background-size: 100% 100%;
+  background-position: top center;
+  z-index: 5;
+}
+
+.top {
+  top: 0;
+  transform: scaleY(-1);
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.score-board {
+  display: flex;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.score {
+  font-size: 32px;
+  color: white;
+  font-weight: 900;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 30px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.start-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  z-index: 20;
+}
+
+.start-message {
+  font-size: 48px;
+  color: white;
+  font-weight: 900;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
+  animation: pulse 1.5s infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.start-subtext {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.8);
+  text-shadow: none;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
